@@ -4,3 +4,9 @@
 
 /.vs/VcfEditor/v15
 /VcfEditor/obj/Debug
+/.vs/VcfEditor/DesignTimeBuild
+/Vcf.Core/bin/Debug
+/Vcf.Core/obj/Debug
+/Vcf.Shell/bin/Debug
+/Vcf.Shell/obj/Debug
+/VcfEditor/bin/Debug

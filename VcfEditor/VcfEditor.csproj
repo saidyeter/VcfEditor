@@ -81,5 +81,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vcf.Core\Vcf.Core.csproj">
+      <Project>{b3c62bd9-9aa2-4c64-aef8-9f89f9a0ee2b}</Project>
+      <Name>Vcf.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vcf.Shell\Vcf.Shell.csproj">
+      <Project>{81c57de4-02e4-430e-a879-01c5ecf08709}</Project>
+      <Name>Vcf.Shell</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
