@@ -1,0 +1,5 @@
+C:\Users\said\source\repos\VcfEditor\Vcf.Core\bin\Release\Vcf.Core.dll
+C:\Users\said\source\repos\VcfEditor\Vcf.Core\bin\Release\Vcf.Core.pdb
+C:\Users\said\source\repos\VcfEditor\Vcf.Core\obj\Release\Vcf.Core.csproj.CoreCompileInputs.cache
+C:\Users\said\source\repos\VcfEditor\Vcf.Core\obj\Release\Vcf.Core.dll
+C:\Users\said\source\repos\VcfEditor\Vcf.Core\obj\Release\Vcf.Core.pdb

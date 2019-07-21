@@ -1,0 +1,8 @@
+C:\Users\said\source\repos\VcfEditor\VCF\bin\Debug\netstandard2.0\VCF.deps.json
+C:\Users\said\source\repos\VcfEditor\VCF\bin\Debug\netstandard2.0\VCF.dll
+C:\Users\said\source\repos\VcfEditor\VCF\obj\Debug\netstandard2.0\VCF.csproj.CoreCompileInputs.cache
+C:\Users\said\source\repos\VcfEditor\VCF\obj\Debug\netstandard2.0\VCF.AssemblyInfoInputs.cache
+C:\Users\said\source\repos\VcfEditor\VCF\obj\Debug\netstandard2.0\VCF.AssemblyInfo.cs
+C:\Users\said\source\repos\VcfEditor\VCF\bin\Debug\netstandard2.0\VCF.pdb
+C:\Users\said\source\repos\VcfEditor\VCF\obj\Debug\netstandard2.0\VCF.dll
+C:\Users\said\source\repos\VcfEditor\VCF\obj\Debug\netstandard2.0\VCF.pdb

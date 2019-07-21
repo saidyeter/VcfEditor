@@ -1,30 +1,48 @@
-﻿using OfficeOpenXml;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
-using System.Linq;
-using System.Reflection;
+using static VCF.Core;
 using System.Text;
-using Vcf.Core;
+using System.Data;
+using System.Linq;
+using OfficeOpenXml;
 
-namespace Vcf.Shell
+namespace VCF
 {
-    public class Program
+    public  class Service
     {
-        static void Main(string[] args)
+
+        public  bool ConvertvCardFileToExcelFile(string sourcePath, string outputPath)
         {
-            var path = @"C:\Users\said\Desktop\contacts00003.vcf";
-            var cards = GetVCFs(File.ReadAllLines(path).ToList());
-            CreateExcelFile("D:\\test.xls", cards);
-
-            var degisken = GetVCFs(GetDataTableFromExcel("D:\\test.xls"));
-
-            CreateVcfFile("D:\\test.vcf",degisken);
+            try
+            {
+                var cards = GetVCFs(File.ReadAllLines(sourcePath).ToList());
+                CreateExcelFile(outputPath, cards);
+                return true;
+            }
+            catch (Exception aa)
+            {
+                throw aa;
+            }
 
         }
 
-        static void CreateExcelFile(string outputPath, List<VCF> list)
+        public  bool ConvertExcelFileTovCardFile(string sourcePath, string outputPath)
+        {
+            try
+            {
+                var cards = GetVCFs(GetDataTableFromExcel(sourcePath));
+                CreateVcfFile(outputPath, cards);
+                return true;
+            }
+            catch (Exception aa)
+            {
+                throw aa;
+            }
+        }
+
+
+        private void CreateExcelFile(string outputPath, List<vCard> list)
         {
             using (var excelPackage = new ExcelPackage(new FileInfo(outputPath)))
             {
@@ -102,10 +120,23 @@ namespace Vcf.Shell
                 excelPackage.Save();
             }
         }
-
-        public static List<VCF> GetVCFs(List<string> AllLines)
+                
+        private void CreateVcfFile(string outputPath, List<vCard> list)
         {
-            List<VCF> cards = new List<VCF>();
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var card in list)
+            {
+                sb.AppendLine(card.ToString());
+            }
+            //File.WriteAllLines(outputPath,sb.ToString().Split(new string[] { Environment.NewLine },StringSplitOptions.RemoveEmptyEntries));
+            File.WriteAllText(outputPath, sb.ToString());
+        }
+
+        private List<vCard> GetVCFs(List<string> AllLines)
+        {
+
+            List<vCard> cards = new List<vCard>();
             try
             {
                 int startCard = -1;
@@ -119,7 +150,7 @@ namespace Vcf.Shell
                         {
                             tmp.Add(AllLines[x]);
                         }
-                        var card = new VCF(tmp);
+                        var card = new vCard(tmp);
                         cards.Add(card);
                         startCard = endCard = -1;
                     }
@@ -144,27 +175,15 @@ namespace Vcf.Shell
         }
 
 
-        static void CreateVcfFile(string outputPath, List<VCF> list)
+        private List<vCard> GetVCFs(DataTable AllLines)
         {
-
-            StringBuilder sb = new StringBuilder();
-            foreach (var card in list)
-            {
-                sb.AppendLine(card.ToString());
-            }
-            //File.WriteAllLines(outputPath,sb.ToString().Split(new string[] { Environment.NewLine },StringSplitOptions.RemoveEmptyEntries));
-            File.WriteAllText(outputPath,sb.ToString());
-        }
-
-        public static List<VCF> GetVCFs(DataTable AllLines)
-        {
-            List<VCF> cards = new List<VCF>();
+            List<vCard> cards = new List<vCard>();
             try
             {
                 for (int i = 0; i < AllLines.Rows.Count; i++)
                 {
                     var row = AllLines.Rows[i];
-                    VCF card = new VCF();
+                    vCard card = new vCard();
                     card.Prefix = row[0].ToString();
                     card.FirstName = row[1].ToString();
                     card.MiddleName = row[2].ToString();
@@ -208,7 +227,7 @@ namespace Vcf.Shell
             }
         }
 
-        public static DataTable GetDataTableFromExcel(string path, bool hasHeader = true)
+        private DataTable GetDataTableFromExcel(string path, bool hasHeader = true)
         {
             using (var pck = new OfficeOpenXml.ExcelPackage())
             {

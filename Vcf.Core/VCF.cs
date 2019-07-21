@@ -114,6 +114,9 @@ namespace Vcf.Core
 
             foreach (var item in bulkData)
             {
+                if (item.StartsWith("FN") || item.StartsWith("VERSION"))
+                    continue;
+
                 var value = item.Contains("CHARSET=UTF-8;ENCODING=QUOTED-PRINTABLE") ? Decode(GetValue(item)) : GetValue(item);
                 if (item.StartsWith("N;") || item.StartsWith("N:"))
                 {
@@ -125,19 +128,9 @@ namespace Vcf.Core
                     LastName = Splitted[0];
                     Suffix = Splitted[4];
                 }
-                else if (item.StartsWith("TEL;:") || item.StartsWith("TEL:")) TEL = value;
-                else if (item.StartsWith("TEL;CELL")) TELCELL = value;
-                else if (item.StartsWith("TEL;WORK")) TELWORK = value;
-                else if (item.StartsWith("TEL;HOME")) TELHOME = value;
-                else if (item.StartsWith("TEL;PREF")) TELPREF = value;
-                else if (item.StartsWith("TEL;VOICE")) TELVOICE = value;
-                else if (item.StartsWith("EMAIL;:") || item.StartsWith("EMAIL:")) EMAIL = value;
-                else if (item.StartsWith("EMAIL;HOME")) EMAILHOME = value;
-                else if (item.StartsWith("EMAIL;WORK")) EMAILWORK = value;
-                else if (item.StartsWith("ADR;:") || item.StartsWith("ADR:")) ADR = value;
-                //Posta Kutusu ;;Cadde;Şehir  Mahalle ;Eyalet ;Posta Kodu;Ülke 
-                else if (item.StartsWith("ADR;HOME")) ADRHOME = value;
-                else if (item.StartsWith("ADR;WORK")) ADRWORK = value;
+                else if (item.StartsWith("TEL")) AddToTel(value.Replace("-", ""));
+                else if (item.StartsWith("EMAIL")) AddToEMail(value);
+                else if (item.StartsWith("ADR")) AddToAddress(value);
                 else if (item.StartsWith("ORG;") || item.StartsWith("ORG:")) ORG = value;
                 else if (item.StartsWith("TITLE;") || item.StartsWith("TITLE:")) TITLE = value;
                 else if (item.StartsWith("URL;") || item.StartsWith("URL:")) URL = value;
@@ -169,7 +162,20 @@ namespace Vcf.Core
             else if (string.IsNullOrEmpty(this.OTHER9))
                 this.OTHER9 = item;
         }
-
+        private void AddToAddress(string value)
+        {
+            //Posta Kutusu ;;Cadde;Şehir  Mahalle ;Eyalet ;Posta Kodu;Ülke 
+            if (string.IsNullOrEmpty(value))
+                return;
+            else if (string.IsNullOrEmpty(this.ADR))
+                this.ADR = value;
+            else if (string.IsNullOrEmpty(this.ADRHOME))
+                this.ADRHOME = value;
+            else if (string.IsNullOrEmpty(this.ADRWORK))
+                this.ADRWORK = value;
+            else
+                AddToOther("ADR:" + value);
+        }
         private void AddToNote(string value)
         {
             if (string.IsNullOrEmpty(value))
@@ -183,7 +189,48 @@ namespace Vcf.Core
             else
                 AddToOther("NOTE:" + value);
         }
-
+        private void AddToEMail(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return;
+            else if (string.IsNullOrEmpty(this.EMAIL))
+                this.EMAIL = value;
+            else if (string.IsNullOrEmpty(this.EMAILWORK))
+                this.EMAILWORK = value;
+            else if (string.IsNullOrEmpty(this.EMAILHOME))
+                this.EMAILHOME = value;
+            else
+                AddToOther("EMAIL:" + value);
+        }
+        private void AddToTel(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return;
+            else if (
+                value.Equals(this.TEL) ||
+                value.Equals(this.TELCELL) ||
+                value.Equals(this.TELHOME) ||
+                value.Equals(this.TELWORK) ||
+                value.Equals(this.TELVOICE) ||
+                value.Equals(this.TELPREF))
+            {
+                return;
+            }
+            else if (string.IsNullOrEmpty(this.TEL))
+                this.TEL = value;
+            else if (string.IsNullOrEmpty(this.TELCELL))
+                this.TELCELL = value;
+            else if (string.IsNullOrEmpty(this.TELHOME))
+                this.TELHOME = value;
+            else if (string.IsNullOrEmpty(this.TELWORK))
+                this.TELWORK = value;
+            else if (string.IsNullOrEmpty(this.TELVOICE))
+                this.TELVOICE = value;
+            else if (string.IsNullOrEmpty(this.TELPREF))
+                this.TELPREF = value;
+            else
+                AddToOther("TEL:" + value);
+        }
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -229,7 +276,6 @@ namespace Vcf.Core
 
             return sb.ToString();
         }
-
         private string GetValue(string raw)
         {
             if (string.IsNullOrEmpty(raw))

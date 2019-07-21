@@ -1,0 +1,11 @@
+C:\Users\said\source\repos\VcfEditor\VCF.ConsoleApp\bin\Release\VCF.ConsoleApp.exe.config
+C:\Users\said\source\repos\VcfEditor\VCF.ConsoleApp\bin\Release\VCF.ConsoleApp.exe
+C:\Users\said\source\repos\VcfEditor\VCF.ConsoleApp\bin\Release\VCF.ConsoleApp.pdb
+C:\Users\said\source\repos\VcfEditor\VCF.ConsoleApp\bin\Release\VCF.dll
+C:\Users\said\source\repos\VcfEditor\VCF.ConsoleApp\bin\Release\VCF.pdb
+C:\Users\said\source\repos\VcfEditor\VCF.ConsoleApp\obj\Release\VCF.ConsoleApp.csprojAssemblyReference.cache
+C:\Users\said\source\repos\VcfEditor\VCF.ConsoleApp\obj\Release\VCF.ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\said\source\repos\VcfEditor\VCF.ConsoleApp\obj\Release\VCF.ConsoleApp.csproj.CopyComplete
+C:\Users\said\source\repos\VcfEditor\VCF.ConsoleApp\obj\Release\VCF.ConsoleApp.exe
+C:\Users\said\source\repos\VcfEditor\VCF.ConsoleApp\obj\Release\VCF.ConsoleApp.pdb
+C:\Users\said\source\repos\VcfEditor\VCF.ConsoleApp\bin\Release\EPPlus.dll

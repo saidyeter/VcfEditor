@@ -44,12 +44,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Vcf.Core\Vcf.Core.csproj">
-      <Project>{b3c62bd9-9aa2-4c64-aef8-9f89f9a0ee2b}</Project>
-      <Name>Vcf.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>

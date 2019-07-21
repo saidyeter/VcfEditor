@@ -1,0 +1,11 @@
+C:\Users\said\source\repos\VcfEditor\Vcf.Shell\bin\Release\Vcf.Shell.exe.config
+C:\Users\said\source\repos\VcfEditor\Vcf.Shell\bin\Release\Vcf.Shell.exe
+C:\Users\said\source\repos\VcfEditor\Vcf.Shell\bin\Release\Vcf.Shell.pdb
+C:\Users\said\source\repos\VcfEditor\Vcf.Shell\bin\Release\EPPlus.dll
+C:\Users\said\source\repos\VcfEditor\Vcf.Shell\bin\Release\Vcf.Core.dll
+C:\Users\said\source\repos\VcfEditor\Vcf.Shell\bin\Release\Vcf.Core.pdb
+C:\Users\said\source\repos\VcfEditor\Vcf.Shell\obj\Release\Vcf.Shell.csprojAssemblyReference.cache
+C:\Users\said\source\repos\VcfEditor\Vcf.Shell\obj\Release\Vcf.Shell.csproj.CoreCompileInputs.cache
+C:\Users\said\source\repos\VcfEditor\Vcf.Shell\obj\Release\Vcf.Shell.csproj.CopyComplete
+C:\Users\said\source\repos\VcfEditor\Vcf.Shell\obj\Release\Vcf.Shell.exe
+C:\Users\said\source\repos\VcfEditor\Vcf.Shell\obj\Release\Vcf.Shell.pdb

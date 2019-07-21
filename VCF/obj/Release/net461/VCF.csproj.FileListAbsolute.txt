@@ -1,0 +1,10 @@
+C:\Users\said\source\repos\VcfEditor\VCF\bin\Release\net461\VCF.dll
+C:\Users\said\source\repos\VcfEditor\VCF\bin\Release\net461\VCF.pdb
+C:\Users\said\source\repos\VcfEditor\VCF\bin\Release\net461\EPPlus.dll
+C:\Users\said\source\repos\VcfEditor\VCF\obj\Release\net461\VCF.csprojAssemblyReference.cache
+C:\Users\said\source\repos\VcfEditor\VCF\obj\Release\net461\VCF.csproj.CoreCompileInputs.cache
+C:\Users\said\source\repos\VcfEditor\VCF\obj\Release\net461\VCF.AssemblyInfoInputs.cache
+C:\Users\said\source\repos\VcfEditor\VCF\obj\Release\net461\VCF.AssemblyInfo.cs
+C:\Users\said\source\repos\VcfEditor\VCF\obj\Release\net461\VCF.csproj.CopyComplete
+C:\Users\said\source\repos\VcfEditor\VCF\obj\Release\net461\VCF.dll
+C:\Users\said\source\repos\VcfEditor\VCF\obj\Release\net461\VCF.pdb
