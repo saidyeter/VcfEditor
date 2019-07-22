@@ -82,7 +82,7 @@ namespace Vcf.Core
         public VCF(List<string> bulkData)
         {
             init();
-            #region e.g.
+            #region e.g. MODEL
 
             //BEGIN:VCARD
             //VERSION:2.1
